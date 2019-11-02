@@ -14,11 +14,13 @@ import Admin from '../Admin/Admin'
 import { HashRouter as Router, Route } from 'react-router-dom'
 
 
+
+
 class App extends Component {
   render() {
     return (
       <Router>
-     
+
       <Header />
 
       <Route path="/" exact component={Home} />
@@ -29,7 +31,7 @@ class App extends Component {
       <Route path="/Review" component={Review} />
       <Route path="/Success" component={Success} />
       <Route path="/Admin" component={Admin} />
-
+  
       </Router>
     );
   }

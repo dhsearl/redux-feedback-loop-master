@@ -5,21 +5,39 @@ import App from './components/App/App';
 
 
 // Redux
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
+// Themes
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { teal, cyan, red, purple } from '@material-ui/core/colors';
 
-const initialState ={
+
+const theme = createMuiTheme({
+  palette: {
+    primary: teal,
+    secondary: {
+        main: cyan[900]
+    },
+    error: red,
+    contrastThreshold: 3,
+    tonalOffset: 0.2,
+  }
+});
+
+const initialState = {
     feeling: 5,
     understanding: 5,
     support: 5,
     comments:''
 }
 
-const feedbackReducer =( state=initialState , action)=>{
+const feedbackReducer = ( state=initialState , action ) => {
     if(action.type==="ADD"){
         let property = action.payload.property;
         return { ...state, [property]: action.payload.value}
+    } else if (action.type ==="CLEAR"){
+        return initialState
     }
     return state;
 }
@@ -31,5 +49,5 @@ const storeInstance = createStore(
         feedbackReducer
     })
 )
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={storeInstance}><MuiThemeProvider theme={theme}><App /></MuiThemeProvider></Provider>, document.getElementById('root'));
 

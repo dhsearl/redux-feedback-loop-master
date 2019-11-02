@@ -8,7 +8,7 @@ class PageTwo extends Component {
                 allowNext: false,
             }
                 handleClick = () => {
-                        if(this.state.allowNext) this.props.history.push("/PageFour")
+                        if(this.state.allowNext) this.props.history.push("/PageThree")
                         else alert("Input Needed")
                 }
                 allowNextPage = () =>{
