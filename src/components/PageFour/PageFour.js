@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import TextField from '@material-ui/core/TextField';
-import './PageFour.css'
+import {Button, TextField, Grid, Typography} from '@material-ui/core';
+
 
 
 class PageFour extends Component {
@@ -21,14 +21,19 @@ class PageFour extends Component {
                 
                 return (
                         <>
-                        <h1>Hello page four</h1>
                         
-                        <pre>{JSON.stringify(this.props,null,2)}</pre>
-                        
+                        <Grid
+                            container
+                            direction="column"
+                            justify="center"
+                            alignItems="center"
+                        >
+                        <Typography variant="h4">Additonal Comments</Typography>
+
                         <TextField
                         id="filled-textarea"
-                        label="Additional Comments"
-                        placeholder="Optional"
+                        label="Optional"
+                        placeholder=""
                         multiline
                         className="textField"
                         value={this.props.feedbackReducer.comments}
@@ -37,7 +42,8 @@ class PageFour extends Component {
                         variant="filled"
                         />
                         
-                        <button onClick={this.handleClick}>Click to review</button>
+                        <Button color="primary" onClick={this.handleClick}>Next</Button>
+                        </Grid>
                         </>
        
                 )}}

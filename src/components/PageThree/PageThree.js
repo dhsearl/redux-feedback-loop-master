@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import InputRange from 'react-input-range';
 import 'react-input-range/lib/css/index.css'
+import { Button } from '@material-ui/core'
 
 class PageThree extends Component {
         state={
@@ -20,8 +21,6 @@ class PageThree extends Component {
                 render() {
                         return (
                                 <>
-                              <pre>{JSON.stringify(this.props,null,2)}</pre>
-                                <pre>{JSON.stringify(this.state,null,2)}</pre>
                                 <h1>How well are you being supported?</h1>
                                 <form>
                                 <InputRange
@@ -30,7 +29,7 @@ class PageThree extends Component {
                                     value={this.props.feedbackReducer.support}
                                     onChange={support => this.props.dispatch({type:"ADD",payload:{ property:"support", value:support}})}
                                     onChangeStart={this.allowNextPage} />
-                                <button onClick={this.handleClick}>Click for next</button>
+                                <Button color="primary" onClick={this.handleClick}>Next</Button>
                                 </form>
                                 </>
                

@@ -12,7 +12,7 @@ import Success from '../Success/Success'
 import Admin from '../Admin/Admin'
 
 import { HashRouter as Router, Route } from 'react-router-dom'
-
+import { Paper } from '@material-ui/core'
 
 
 
@@ -23,6 +23,7 @@ class App extends Component {
 
       <Header />
 
+      <Paper style={{height:"80"}}>
       <Route path="/" exact component={Home} />
       <Route path="/PageOne" component={PageOne} />
       <Route path="/PageTwo" component={PageTwo} />
@@ -31,7 +32,8 @@ class App extends Component {
       <Route path="/Review" component={Review} />
       <Route path="/Success" component={Success} />
       <Route path="/Admin" component={Admin} />
-  
+      </Paper>
+
       </Router>
     );
   }
