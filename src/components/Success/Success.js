@@ -19,7 +19,7 @@ class Success extends Component {
         render() {
                 return (
                         <>
-                        <h1>Hello page three</h1>
+                        <h1>Submitted Successfully</h1>
                         <button onClick={()=>this.handleClick('/')}>Click to go back to start</button>
                         <button onClick={()=>this.handleClick('/PageOne')}>Click to write new feedback</button>
                         </>

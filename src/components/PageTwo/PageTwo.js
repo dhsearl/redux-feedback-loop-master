@@ -5,7 +5,6 @@ import 'react-input-range/lib/css/index.css'
 
 class PageTwo extends Component {
         state={
-                understanding: 5,
                 allowNext: false,
             }
                 handleClick = () => {
@@ -28,8 +27,8 @@ class PageTwo extends Component {
                                 <InputRange
                                     maxValue={10}
                                     minValue={0}
-                                    value={this.state.understanding}
-                                    onChange={understanding => this.setState({ understanding })}
+                                    value={this.props.feedbackReducer.understanding}
+                                    onChange={understanding => this.props.dispatch({type:"ADD",payload:{property:"understanding",value:understanding}})}
                                     onChangeStart={this.allowNextPage} />
                                 <button onClick={this.handleClick}>Click for next</button>
                                 

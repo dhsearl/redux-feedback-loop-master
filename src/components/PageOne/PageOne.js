@@ -6,7 +6,6 @@ import 'react-input-range/lib/css/index.css'
 
 class PageOne extends Component {
     state={
-        feeling: 5,
         allowNext: false,
     }
         handleClick = () => {
@@ -29,8 +28,8 @@ class PageOne extends Component {
                         <InputRange
                             maxValue={10}
                             minValue={0}
-                            value={this.state.feeling}
-                            onChange={feeling => this.setState({ feeling })}
+                            value={this.props.feedbackReducer.feeling}
+                            onChange={feeling => this.props.dispatch({type:"ADD",payload:{property:"feeling",value:feeling}})}
                             onChangeStart={this.allowNextPage} />
                         <button onClick={this.handleClick}>Click for next</button>
                         </form>

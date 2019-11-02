@@ -5,7 +5,6 @@ import 'react-input-range/lib/css/index.css'
 
 class PageThree extends Component {
         state={
-                support: 5,
                 allowNext: false,
             }
                 handleClick = () => {
@@ -28,8 +27,8 @@ class PageThree extends Component {
                                 <InputRange
                                     maxValue={10}
                                     minValue={0}
-                                    value={this.state.support}
-                                    onChange={support => this.setState({ support })}
+                                    value={this.props.feedbackReducer.support}
+                                    onChange={support => this.props.dispatch({type:"ADD",payload:{ property:"support", value:support}})}
                                     onChangeStart={this.allowNextPage} />
                                 <button onClick={this.handleClick}>Click for next</button>
                                 </form>
