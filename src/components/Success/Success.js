@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { Button, ButtonGroup } from '@material-ui/core'
+import { Button, ButtonGroup, Typography } from '@material-ui/core'
 
 
 class Success extends Component {
@@ -20,10 +20,10 @@ class Success extends Component {
     render() {
         return (
             <>
-                <h1>Submitted Successfully</h1>
+                <Typography variant="h2">Feedback Submitted</Typography>
                 <ButtonGroup>
                     <Button variant="contained" color="primary" onClick={() => this.handleClick('/')}>Click to go back to start</Button>
-                    <Button onClick={() => this.handleClick('/PageOne')}>Click to write new feedback</Button>
+                    <Button color="secondary" onClick={() => this.handleClick('/PageOne')}>Click to write new feedback</Button>
                 </ButtonGroup>
             </>
 

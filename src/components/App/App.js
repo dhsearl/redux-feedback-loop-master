@@ -13,6 +13,7 @@ import Admin from '../Admin/Admin'
 
 import { HashRouter as Router, Route } from 'react-router-dom'
 import { Paper } from '@material-ui/core'
+import Footer from '../Footer/Footer';
 
 
 
@@ -32,6 +33,7 @@ class App extends Component {
       <Route path="/Review" component={Review} />
       <Route path="/Success" component={Success} />
       <Route path="/Admin" component={Admin} />
+      <Footer />
       </Paper>
 
       </Router>

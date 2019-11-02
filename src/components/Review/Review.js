@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Score from '../Score/Score'
 import axios from 'axios'
-import { Button, Typography, Grid} from '@material-ui/core'
+import { Button, Typography, Grid, Box} from '@material-ui/core'
 
 class Review extends Component {
 
@@ -27,22 +27,22 @@ class Review extends Component {
         return (
             <>
             <Typography variant="h3">Review Answers</Typography>
-            <Grid style={{width:"50%",marginRight:"400px"}}
+            <Grid style={{width:"65%"}}
             container
             direction="column"
             alignItems="flex-end"
             > 
-                <Grid pb={6}>I'm feeling like a  <Score number={this.props.feedbackReducer.feeling} /></Grid>
-                <Grid pb={6}>My understanding is a  <Score number={this.props.feedbackReducer.understanding} /></Grid>
-                <Grid pb={6}>The level of support I feel is a  <Score number={this.props.feedbackReducer.support} /></Grid>
+                <Box py="2rem">I'm feeling like a  <Score number={this.props.feedbackReducer.feeling} /></Box>
+                <Box pb="2rem">My understanding is a  <Score number={this.props.feedbackReducer.understanding} /></Box>
+                <Box pb="2rem">The level of support I feel is a  <Score number={this.props.feedbackReducer.support} /></Box>
 
                 {this.props.feedbackReducer.comments.length > 0 
-                    && <Grid>Additionally:  {this.props.feedbackReducer.comments}</Grid>
+                    && <Box>Additionally:  {this.props.feedbackReducer.comments}</Box>
                 }
 
                 
             </Grid>
-            <Button onClick={this.handleClick}>Submit</Button></>
+            <Button variant="outlined" color="default" onClick={this.handleClick}>Submit</Button></>
         )
     }
 }

@@ -23,7 +23,8 @@ const theme = createMuiTheme({
     contrastThreshold: 3,
     tonalOffset: 0.2,
   },
-  spacing: 8,
+  spacing: 
+      8,
 });
 console.log(theme);
 
@@ -44,11 +45,22 @@ const feedbackReducer = ( state=initialState , action ) => {
     return state;
 }
 
+const stepReducer = ( state=0, action ) => {
+    if(action.type==="NEXT") {
+        return state +1
+    } else if(action.type==="BACK"){
+        return state -1
+    } else if(action.type==="RESET"){
+        return 0
+    }
+    return state
+}
 
 
 const storeInstance = createStore(
     combineReducers({
-        feedbackReducer
+        feedbackReducer,
+        stepReducer
     })
 )
 ReactDOM.render(<Provider store={storeInstance}><MuiThemeProvider theme={theme}><App /></MuiThemeProvider></Provider>, document.getElementById('root'));

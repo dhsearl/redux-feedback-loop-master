@@ -4,17 +4,16 @@ import Button from '@material-ui/core/Button'
 class Score extends Component {
     // Added this incase I want to change the range
     state = {
-        RANGE_MAX: 10,
-        scoreColor: '',
+        scoreColor: [],
     }
 
     // 70% and up will be green
     // 50% to 70% will be yellow
     // Below 50% will be red
     determineColor = (number) => {
-        if (number >= ((7 / this.state.RANGE_MAX) * 10)) return "green"
-        else if (number >= ((5 / this.state.Range_MAX) * 10)) return "yellow"
-        else return "red"
+        if (number >= 7 ) return ["green","white"]
+        else if (number >= 5) return ["yellow","blue"]
+        else return ["red","white"]
     }
 
     // Use props to determine scoreColor
@@ -27,7 +26,8 @@ class Score extends Component {
     render() {
         return (
             <Button
-                style={{ backgroundColor: this.state.scoreColor, color: "white" }}
+                style={{ backgroundColor:this.state.scoreColor[0], 
+                        color: this.state.scoreColor[1] }}
                 variant="contained">{this.props.number}/10
             </Button>
         )
