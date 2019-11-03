@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
-
+import classNames from 'classnames'
 
 // Redux
 import { createStore, combineReducers } from 'redux';
@@ -27,22 +27,28 @@ const theme = createMuiTheme({
     overrides: {
         MuiStepper: {
             root: {
-                background: "#033076",
+                background: "#1a1a1a",
             }
         },
         MuiStepLabel: {
             label: {
-                color: "white"
-            },
-            active: {
-                color: "white"
-            },
-            completed: {
-                color: "white"
-            }
+                color: "white",
+                '&$active':{
+                    color: "pink"
+                },
+                '&$completed':{
+                    
+                    color: "#00FF00",
+                },
+        },
+        
+    },
+    MuiTypography:{
+        h2:{
+            color:teal
         }
     }
-}
+}}
 );
 console.log(theme);
 

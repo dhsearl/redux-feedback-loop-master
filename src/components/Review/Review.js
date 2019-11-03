@@ -5,7 +5,10 @@ import Score from '../Score/Score'
 import { Typography, Grid, Box} from '@material-ui/core'
 
 class Review extends Component {
-
+    // Add this to let people press back button on browser
+    componentDidMount(){
+        this.props.dispatch({type:"SET", payload:5})
+    }
     render() {
         return (
             <>

@@ -8,6 +8,10 @@ class PageFour extends Component {
     handleChange=(event) => {
             this.props.dispatch({type:"ADD", payload:{property:"comments", value: event.target.value}});
     }
+    // Add this to let people press back button on browser
+    componentDidMount(){
+        this.props.dispatch({type:"SET", payload:4})
+    }
     render() {
         return (
             <>

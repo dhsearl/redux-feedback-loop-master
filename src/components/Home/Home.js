@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
-import { Button } from '@material-ui/core'
-
+import { connect } from 'react-redux'
 
 class Home extends Component {
     handleClick = () => {
         this.props.history.push("/PageOne");
     }
     componentDidMount(){
-        // reset feedback
-        // reset feedback input value
+        this.props.dispatch({type:"SET", payload:0})
     }
 
     render() {
         return (
             <>
-                <h1>Want to give feedback? </h1>
-                {/* <Button color="primary" onClick={this.handleClick}>Yes</Button> */}
+                <h1>Ready?</h1>
+
             </>
 
         )
     }
 }
 
-export default Home;
+export default connect()(Home);

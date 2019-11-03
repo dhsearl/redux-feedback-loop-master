@@ -3,9 +3,6 @@ import { Button, Typography } from '@material-ui/core'
 import { connect } from 'react-redux'
 import axios from 'axios'
 
-
-
-
 class Footer extends Component {
 
     state = {
@@ -40,6 +37,7 @@ class Footer extends Component {
     getPage = (step) => {
         switch (step) {
             case 0:
+                this.props.dispatch({type:"RESET"})
                 this.props.history.push("/");
                 break;
             case 1:
@@ -66,51 +64,52 @@ class Footer extends Component {
     }
 
     render() {
-
         const activeStep = this.props.stepReducer;
-        console.log("active step is", activeStep);
-
-
         return (
             <>
                 {/* Just show back to home on page 6 */}
-                {this.props.stepReducer === 6 ? (
+                {activeStep === 6 ? (
 
                     <div>
                         <Typography>
                             All steps completed - you&apos;re finished
                         </Typography>
-                        <Button color="secondary" onClick={() => this.getPage(0)}>Click to write new feedback</Button>
+                        <Button color="primary" variant="outlined" onClick={() => this.getPage(0)}>Click to write new feedback</Button>
                     </div>
                 ) : (
                 <div>
 
                         {/* Only show back once the survey has started. Only allow it after you've gone forward once. */}
-                        {this.props.stepReducer > 1 &&
+                        {activeStep > 1 &&
                             <Button
-                                disabled={this.props.stepReducer === 1}
+                                disabled={activeStep === 1}
                                 onClick={this.handleBack}>
                                 Back
                                 </Button>}
-                        {/* Show Next or Review for most pages */}
-                        {this.props.stepReducer < 5 &&
+                        {/* First have 'Yes' be the next button, then show Next or Review for most pages */}
+                        {activeStep === 0 &&
                             <Button
                                 variant="contained"
                                 color="primary"
-                                disabled={Number(activeStep < 5 && !this.props.allowNextReducer[activeStep])}
                                 onClick={this.handleNext}>
-                                {Number(activeStep) === 4 ? 'Review' : 'Next'}
+                                Yes
+                            </Button>}
+                        {activeStep < 5 && activeStep >0 &&
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                disabled={activeStep < 5 && !this.props.allowNextReducer[activeStep]}
+                                onClick={this.handleNext}>
+                                {activeStep === 4 ? 'Review' : 'Next'}
                             </Button>}
                         {/* Just show submit on page 5 */}
-                        {this.props.stepReducer === 5 &&
+                        {activeStep === 5 &&
                             <Button
+                            variant="contained"
+                            color="primary"
                                 onClick={this.handleSubmit}>
                                 Submit
                             </Button>}
-                        <pre>{activeStep}</pre>
-                        <pre>{JSON.stringify(this.props, null, 2)}</pre>
-
-
                     </div>
             )}
             </>

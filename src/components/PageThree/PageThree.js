@@ -8,6 +8,10 @@ class PageThree extends Component {
     allowNextPage = () =>{
         this.props.dispatch({type:"ALLOW_NEXT", payload: this.props.stepReducer})
     }
+    // Add this to let people press back button on browser
+    componentDidMount(){
+        this.props.dispatch({type:"SET", payload:3})
+    }
     render() {
         return (
             <>

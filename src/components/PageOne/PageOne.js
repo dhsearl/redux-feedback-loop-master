@@ -9,6 +9,10 @@ class PageOne extends Component {
     allowNextPage = () =>{
         this.props.dispatch({type:"ALLOW_NEXT", payload: this.props.stepReducer})
     }
+    // Add this to let people press back button on browser
+    componentDidMount(){
+        this.props.dispatch({type:"SET", payload:1})
+    }
     render() {
         return (
                 <>
