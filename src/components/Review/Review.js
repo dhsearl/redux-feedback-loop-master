@@ -1,27 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Score from '../Score/Score'
-import axios from 'axios'
-import { Button, Typography, Grid, Box} from '@material-ui/core'
+
+import { Typography, Grid, Box} from '@material-ui/core'
 
 class Review extends Component {
-
-
-    handleClick = () => {
-        this.sendToDatabase();
-    }
-
-    sendToDatabase = () => {
-        axios.post('/feedback', this.props.feedbackReducer)
-            .then(() => {
-                this.props.dispatch({ type: "CLEAR" })
-                this.props.history.push("/Success");
-            })
-            .catch((error) => {
-                alert("Error sending feedback to database");
-                console.log("POST error was", error);
-            })
-    }
 
     render() {
         return (
@@ -39,10 +22,8 @@ class Review extends Component {
                 {this.props.feedbackReducer.comments.length > 0 
                     && <Box>Additionally:  {this.props.feedbackReducer.comments}</Box>
                 }
-
-                
             </Grid>
-            <Button variant="outlined" color="default" onClick={this.handleClick}>Submit</Button></>
+            </>
         )
     }
 }

@@ -10,58 +10,94 @@ import { Provider } from 'react-redux';
 
 // Themes
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-import { teal, cyan, red, purple } from '@material-ui/core/colors';
+import { teal, cyan, red } from '@material-ui/core/colors';
 
 
 const theme = createMuiTheme({
-  palette: {
-    primary: teal,
-    secondary: {
-        main: cyan[900]
+    palette: {
+        primary: teal,
+        secondary: {
+            main: cyan[900]
+        },
+        error: red,
+        contrastThreshold: 3,
+        tonalOffset: 0.2,
     },
-    error: red,
-    contrastThreshold: 3,
-    tonalOffset: 0.2,
-  },
-  spacing: 
-      8,
-});
+    spacing: 8,
+    overrides: {
+        MuiStepper: {
+            root: {
+                background: "#033076",
+            }
+        },
+        MuiStepLabel: {
+            label: {
+                color: "white"
+            },
+            active: {
+                color: "white"
+            },
+            completed: {
+                color: "white"
+            }
+        }
+    }
+}
+);
 console.log(theme);
 
 const initialState = {
     feeling: 5,
     understanding: 5,
     support: 5,
-    comments:''
+    comments: ''
 }
 
-const feedbackReducer = ( state=initialState , action ) => {
-    if(action.type==="ADD"){
+const feedbackReducer = (state = initialState, action) => {
+    if (action.type === "ADD") {
         let property = action.payload.property;
-        return { ...state, [property]: action.payload.value}
-    } else if (action.type ==="CLEAR"){
+        return { ...state, [property]: action.payload.value }
+    } else if (action.type === "CLEAR") {
         return initialState
     }
-    return state;
+    return state
 }
 
-const stepReducer = ( state=0, action ) => {
-    if(action.type==="NEXT") {
-        return state +1
-    } else if(action.type==="BACK"){
-        return state -1
-    } else if(action.type==="RESET"){
+const stepReducer = (state = 0, action) => {
+    if (action.type === "NEXT") {
+        return state + 1
+    } else if (action.type === "BACK") {
+        return state - 1
+    } else if (action.type === "RESET") {
         return 0
+    } else if (action.type ==="SET"){
+        return action.payload
+    }
+    return state
+}
+
+// The array indexes match the page numbers from 0-home to 6-Success
+const allowNextPageArray = [true,false,false,false,true,true,true] 
+const allowNextReducer = (state = allowNextPageArray, action)=>{
+    if (action.type ==="ALLOW_NEXT"){
+        return state.map((page, i)=>{
+            if(action.payload === i) page = true;
+            return page
+        })}
+     else if (action.type==="CLEAR"){
+        return allowNextPageArray
     }
     return state
 }
 
 
+
 const storeInstance = createStore(
     combineReducers({
         feedbackReducer,
-        stepReducer
+        stepReducer,
+        allowNextReducer,
     })
 )
-ReactDOM.render(<Provider store={storeInstance}><MuiThemeProvider theme={theme}><App /></MuiThemeProvider></Provider>, document.getElementById('root'));
+    ReactDOM.render(<Provider store={storeInstance}><MuiThemeProvider theme={theme}><App /></MuiThemeProvider></Provider>, document.getElementById('root'));
 

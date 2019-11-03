@@ -33,7 +33,8 @@ class App extends Component {
       <Route path="/Review" component={Review} />
       <Route path="/Success" component={Success} />
       <Route path="/Admin" component={Admin} />
-      <Footer />
+      <Route path="/" component={Footer} />
+    {/* //   <Footer /> */}
       </Paper>
 
       </Router>
