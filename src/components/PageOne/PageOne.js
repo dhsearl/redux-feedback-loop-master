@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import InputRange from 'react-input-range';
 import 'react-input-range/lib/css/index.css'
-import {Container } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 
 
 
@@ -21,8 +21,8 @@ class PageOne extends Component {
     render() {
         return (
             <>
-                <h1>How are you feeling today?</h1>
-
+                {/* <h1>How are you feeling today?</h1> */}
+                <Typography variant="h4">How are you feeling today?</Typography>    
                 <InputRange
                     maxValue={10}
                     minValue={0}

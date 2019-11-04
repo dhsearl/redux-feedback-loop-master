@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import InputRange from 'react-input-range';
 import 'react-input-range/lib/css/index.css'
-import { Box } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 
 
 class PageThree extends Component {
@@ -21,8 +21,8 @@ class PageThree extends Component {
     render() {
         return (
             <>
-                <h1>How well are you being supported?</h1>
-                
+                {/* <h1>How well are you being supported?</h1> */}
+                <Typography variant="h4">How well are you being supported?</Typography>
                 <InputRange
                     maxValue={10}
                     minValue={0}

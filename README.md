@@ -4,12 +4,19 @@ Duration: Weekend Sprint
 
 To see the fully functional site, please visit:   [DEPLOYED VERSION OF FEEDBACK LOOP](https://feedback-searl.herokuapp.com/)
 
-The React Gallery is a full-stack display of images from a Postgres database.  Users can Like, Delete, View full sized, add from a url, and upload photos too.
+My last reminder of the day and last reminder of everyday is... Feedback! 
+This simple application makes the student's job of giving feedback a breeze. Upon submission, feedback is stored in a database, and allows an administrator to see and sort and manage all feedback that has been given.
 
-The hardest parts about creating this app were:
-* Using React Classes with Material-UI
-* Material-UI
-* Configuring Uppy file uploader
+This full-stack CRUD application stores the user's feedback a global store using Redux and React-Redux.  The user can go back and change feedback before submitting.  The application tracks that real input has been given before allowing the user to proceed.  Timed messages give users clues as to what they should do if they can't figure out the UI. 
+
+The administrator function is available at /admin or /#/admin.  Responses are presented by most recent by default, but the table uses Material Table so it is sortable by any dimension.  Moment.js is used to show how recently each piece of feedback came in rather than a confusing time stamp.
+
+
+The coolest features of this application are
+* Input Sliders for the 0-10 feedback questions
+* Material-UI steppers and conditionally displayed buttons
+* Material Table and Moment.js making the Admin page powerful and easy to use
+* 
 
 
 ### React & Material-UI

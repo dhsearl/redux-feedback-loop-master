@@ -12,11 +12,12 @@ class Review extends Component {
     render() {
         return (
             <>
-                <Typography variant="h3">Review Answers</Typography>
-                <Grid style={{ width: "65%" }}
+                <Typography variant="h4">Review Answers</Typography>
+                <Grid
                     container
                     direction="column"
-                    alignItems="flex-end"
+                    alignItems="center"
+                    justifyContent="center"
                 >
                     <Box py="2rem">I'm feeling like a   <Score number={this.props.feedbackReducer.feeling} /></Box>
                     <Box pb="2rem">My understanding is a   <Score number={this.props.feedbackReducer.understanding} /></Box>
