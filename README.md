@@ -2,7 +2,7 @@
 
 Duration: Weekend Sprint
 
-To see the fully functional site, please visit:   [DEPLOYED VERSION OF FEEDBACK LOOP](https://feedback-searl.herokuapp.com/)
+To see the fully functional site, please visit:   [DEPLOYED VERSION OF FEEDBACK LOOP](https://feedback.searl.org/)
 
 My last reminder of the day and last reminder of everyday is... Feedback! 
 This simple application makes the student's job of giving feedback a breeze. Upon submission, feedback is stored in a database, and allows an administrator to see and sort and manage all feedback that has been given.
