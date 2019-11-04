@@ -27,10 +27,11 @@ The administrator function is available at /admin or /#/admin.  Responses are pr
 Keeping the user input in Redux was a breeze and saved passing as props their feedback as we move from page to page towards submit.  Managing what page the user was on was more difficult, but some pen, paper and variable tracking helped that out.  Users must input a slider value before they can progress. This is tracked in a simple array in Redux State.
 
 ### Input Sliders
-I wanted to challenge myself and try a different input method than typing a number.  [REACT INPUT RANGE ON GIT HUB](https://github.com/davidchin/react-input-range)
+I wanted to challenge myself and try a different input method than typing a number.  
+
 
 ### Material Table
-I am very please at how well this worked for the Admin page.  Material Table is a powerful tool and I will be digging into its feature set.  Using Moment.js and Moment-Timezone, the date column works how an administrator that needs to sort feedback would want.  [Material Table](https://material-table.com/)
+I am very please at how well this worked for the Admin page.  Material Table is a powerful tool and I will be digging into its feature set.  Using Moment.js and Moment-Timezone, the date column works how an administrator that needs to sort feedback would want.  
 
 
 ## Screen Shots
@@ -56,7 +57,7 @@ Need Node?
 
 ## Installation
 
-You can view the deployed version on Heroku  [REACT GALLERY](https://feedback-searl.herokuapp.com/) or
+You can view the deployed version on Heroku  [Feedback Loop](https://feedback-searl.herokuapp.com/) or
 
 1. run `git clone http://...` to fork and clone from this repository
 2. run `npm install` to install dependencies like Uppy and Material-ui - these are listed in the package.json file
@@ -80,6 +81,11 @@ React, Redux, Material-ui, Material Table, React Input Range, Moment.js, and Nod
 
 ## Acknowledgement
 Thanks to the Scytale cohort of  [Prime Digital Academy](www.primeacademy.io) in Minneapolis.
+Thanks as well to these creators:
+
+[React Input Range](https://github.com/davidchin/react-input-range)
+
+[Material Table](https://material-table.com/)
 
 ## Support
 If you have suggestions or issues, please email me at [dhsearl@gmail.com](mailto:dhsearl@gmail.com)
