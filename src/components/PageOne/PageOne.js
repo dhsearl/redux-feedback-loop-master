@@ -22,16 +22,14 @@ class PageOne extends Component {
         return (
             <>
                 <h1>How are you feeling today?</h1>
-                <Container>
-                <div className="sliderWidth">
+
                 <InputRange
                     maxValue={10}
                     minValue={0}
                     value={this.props.feedbackReducer.feeling}
                     onChange={feeling => this.props.dispatch({ type: "ADD", payload: { property: "feeling", value: feeling } })}
                     onChangeStart={this.allowNextPage} />
-                </div>
-                </Container>
+
                 {/* If they haven't moved the slider, and some seconds pass then... */}
                 {!this.props.allowNextReducer[this.props.stepReducer] &&
                     <div className={this.state.visible ? 'fadeIn' : 'fadeOut'}>You gotta move the slider</div>}

@@ -23,7 +23,7 @@ class PageTwo extends Component {
             <>
                 <h1>How well do you understand the content?</h1>
                 <Container>
-                <Box style={{width:'50%'}}>
+                <Box style={{width:'50%', textAlign:'center'}}>
                 <InputRange
                     maxValue={10}
                     minValue={0}
