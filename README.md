@@ -71,7 +71,8 @@ You can view the deployed version on Heroku  [Feedback Loop](https://feedback-se
 ## Usage
 Submit your feedback for the day. Leave your thoughts on this project.
 
-Then try going to the /Admin page!
+Then try going to the /Admin page
+
 See if you can find the hidden user instructions!
 
 ## Built With
