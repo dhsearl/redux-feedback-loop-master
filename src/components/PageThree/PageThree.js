@@ -21,7 +21,6 @@ class PageThree extends Component {
     render() {
         return (
             <>
-                {/* <h1>How well are you being supported?</h1> */}
                 <Typography variant="h4">How well are you being supported?</Typography>
                 <InputRange
                     maxValue={10}

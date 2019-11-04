@@ -21,7 +21,6 @@ class PageOne extends Component {
     render() {
         return (
             <>
-                {/* <h1>How are you feeling today?</h1> */}
                 <Typography variant="h4">How are you feeling today?</Typography>    
                 <InputRange
                     maxValue={10}

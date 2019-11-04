@@ -18,7 +18,7 @@ class Admin extends Component {
         this.props.dispatch({ type: "SET", payload: 9 })
         this.props.dispatch({ type: "CLEAR" })
     }
-
+    // PUT Route
     putFlag = (id) => {
         console.log(id);
         axios.put(`/feedback/${id}`)
@@ -28,7 +28,8 @@ class Admin extends Component {
             .catch((error) => {
                 console.log("ERROR flagging", error);
             })
-    }
+    } // END PUT
+    // DELETE ROUTE
     deleteRow = (id) => {
         console.log(id);
         axios.delete(`/feedback/${id}`)
@@ -38,8 +39,8 @@ class Admin extends Component {
             .catch((error) => {
                 console.log("ERROR deleting", error);
             })
-    }
-    // Delete Dialog Handlers
+    } // END DELETE
+    // DELETE Dialog Handlers
     handleClickOpen = (id) => {
         this.setState({
             open: true,
@@ -57,7 +58,8 @@ class Admin extends Component {
             open: false,
         });
         this.deleteRow(this.state.id);
-    };
+    }; // END DETELE Dialog Handlers
+    // GET ROUTE
     getData = () => {
         axios.get('/feedback')
             .then((response) => {
@@ -71,7 +73,7 @@ class Admin extends Component {
             .catch((error) => {
                 console.log("Client error getting data from database", error);
             })
-    }
+    } // END GET ROUTE
     render() {
         return (
             <>

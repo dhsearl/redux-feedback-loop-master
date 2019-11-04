@@ -21,7 +21,6 @@ class PageTwo extends Component {
     render() {
         return (
             <>
-                {/* <h1>How well do you understand the content?</h1> */}
                 <Typography variant="h4">How well do you understand the content?</Typography>    
 
                 <InputRange

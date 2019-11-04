@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Score from '../Score/Score'
 
-import { Typography, Grid, Box } from '@material-ui/core'
+import { Typography, Grid, Box, Container } from '@material-ui/core'
 
 class Review extends Component {
     // Add this to let people press back button on browser
@@ -13,12 +13,18 @@ class Review extends Component {
         return (
             <>
                 <Typography variant="h4">Review Answers</Typography>
-                <Grid
+                {/* <Grid
                     container
                     direction="column"
                     alignItems="center"
                     justifyContent="center"
-                >
+                > */}
+                <Container maxWidth="xs">
+                <Box px="3rem">
+                    <Grid container 
+                    direction="column"
+                    alignItems="flex-end">
+                        
                     <Box py="2rem">I'm feeling like a   <Score number={this.props.feedbackReducer.feeling} /></Box>
                     <Box pb="2rem">My understanding is a   <Score number={this.props.feedbackReducer.understanding} /></Box>
                     <Box pb="2rem">The level of support I feel is a   <Score number={this.props.feedbackReducer.support} /></Box>
@@ -26,7 +32,11 @@ class Review extends Component {
                     {this.props.feedbackReducer.comments.length > 0
                         && <Box>Additionally:  {this.props.feedbackReducer.comments}</Box>
                     }
-                </Grid>
+                    
+                    </Grid>
+                    </Box>
+                    </Container>
+                {/* </Grid> */}
             </>
         )
     }

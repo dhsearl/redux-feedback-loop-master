@@ -13,9 +13,11 @@ The administrator function is available at /admin or /#/admin.  Responses are pr
 
 
 The coolest features of this application are
+* Redux state managing active page view, user input, and validation
 * Input Sliders for the 0-10 feedback questions
 * Material-UI steppers and conditionally displayed buttons
-* Material Table and Moment.js making the Admin page powerful and easy to use
+* Material Table and Moment.js making the /Admin page powerful and easy to use
+* DRY code - The Back/Next buttons, the Score chips and the Header are abstracted out into their own elements
 * 
 
 
