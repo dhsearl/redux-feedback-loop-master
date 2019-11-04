@@ -66,7 +66,7 @@ class Admin extends Component {
         axios.get('/feedback')
             .then((response) => {
                 // Change date to a string telling us how recent it was
-                response.data.forEach(row => row.date = moment(row.date).fromNow())
+                response.data.forEach(row => row.date = moment(row.date).tz("America/Chicago").fromNow())
                 // set state to the array of row objects
                 this.setState({
                     fromDB: [...response.data]

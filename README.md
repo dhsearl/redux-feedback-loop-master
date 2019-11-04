@@ -17,6 +17,7 @@ The administrator function is available at /admin or /#/admin.  Responses are pr
 * Input Range Sliders for the 0-10 feedback questions
 * Material-UI steppers and conditionally displayed buttons
 * Material Table and Moment.js making the /Admin page powerful and easy to use
+    * On the HEROKU version I built the SQL table with DATETIME rather than just a DATE so we can see how recent submissions were.
 * DRY code - The Back/Next buttons, the Score chips and the Header are abstracted out into their own elements
 * Secret helper text for users who don't know what to do.
 
@@ -29,7 +30,7 @@ Keeping the user input in Redux was a breeze and saved passing as props their fe
 I wanted to challenge myself and try a different input method than typing a number.  [REACT INPUT RANGE ON GIT HUB](https://github.com/davidchin/react-input-range)
 
 ### Material Table
-I am very please at how well this worked for the admin page.  Material Table is a powerful tool and I will be digging into its feature set.  Using Moment.js and Moment-Timezone, the date column works how an administrator that needs to sort feedback would want.
+I am very please at how well this worked for the Admin page.  Material Table is a powerful tool and I will be digging into its feature set.  Using Moment.js and Moment-Timezone, the date column works how an administrator that needs to sort feedback would want.  [Material Table](https://material-table.com/)
 
 
 ## Screen Shots
