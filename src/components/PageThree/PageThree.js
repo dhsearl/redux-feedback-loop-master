@@ -24,6 +24,7 @@ class PageThree extends Component {
                 <InputRange
                     maxValue={10}
                     minValue={0}
+                    className="sliderWidth"
                     value={this.props.feedbackReducer.support}
                     onChange={support => this.props.dispatch({ type: "ADD", payload: { property: "support", value: support } })}
                     onChangeStart={this.allowNextPage} />

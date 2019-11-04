@@ -25,6 +25,7 @@ class PageTwo extends Component {
                 <InputRange
                     maxValue={10}
                     minValue={0}
+                    className="sliderWidth"
                     value={this.props.feedbackReducer.understanding}
                     onChange={understanding => this.props.dispatch({ type: "ADD", payload: { property: "understanding", value: understanding } })}
                     onChangeStart={this.allowNextPage} />
