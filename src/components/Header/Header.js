@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import {Step, Stepper, StepLabel, Box, AppBar, Paper} from '@material-ui/core';
+import {Step, Stepper, StepLabel, Box, AppBar, Container} from '@material-ui/core';
 
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux'
@@ -30,19 +30,21 @@ class Header extends Component {
 
                 {/* Show Stepper only if we're off the main page */}
                 {this.props.stepReducer !== 0 && this.props.stepReducer !==6 &&  
-                <Box container style={{maxWidth:'800px'}} mx={'auto'} mb={'1rem'} display={{ xs: 'none',sm: 'block' }}>
+                <Container px={0} style={{width:'100vp', maxWidth:'1020px'}} >
+                    <Box pb={'1rem'} display={{ xs: 'none', sm: 'block' }}>
                     <Stepper activeStep={this.props.stepReducer-1} >
                         {steps.map((label, index) => {
                             const props = {};
                             const labelProps = {};
                             return (
-                                <Step key={label} {...props}>
+                                <Step key={label} {...labelProps} {...props}>
                                     <StepLabel >{label}</StepLabel>
                                 </Step>
                             );
                         })}
                     </Stepper>
-                </Box>}
+                    </Box>
+                </Container>}
             </AppBar>
 
 

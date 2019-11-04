@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
-import classNames from 'classnames'
 
 // Redux
 import { createStore, combineReducers } from 'redux';
@@ -37,8 +36,7 @@ const theme = createMuiTheme({
                     color: "pink"
                 },
                 '&$completed':{
-                    
-                    color: "#00FF00",
+                    color: "#6F7C80",
                 },
         },
         
