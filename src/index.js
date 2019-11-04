@@ -22,6 +22,9 @@ const theme = createMuiTheme({
         contrastThreshold: 3,
         tonalOffset: 0.2,
     },
+    breakpoints:{
+        
+    },
     spacing: 8,
     overrides: {
         MuiStepper: {
@@ -45,18 +48,19 @@ const theme = createMuiTheme({
         h2:{
             color:teal
         }
-    }
+    },
 }}
 );
-console.log(theme);
 
+
+// Set initial values for sliders and text box
 const initialState = {
     feeling: 5,
     understanding: 5,
     support: 5,
     comments: ''
 }
-
+// Build object of feedback for sending to database
 const feedbackReducer = (state = initialState, action) => {
     if (action.type === "ADD") {
         let property = action.payload.property;
@@ -66,7 +70,7 @@ const feedbackReducer = (state = initialState, action) => {
     }
     return state
 }
-
+// Next page action from Footer Buttons
 const stepReducer = (state = 0, action) => {
     if (action.type === "NEXT") {
         return state + 1

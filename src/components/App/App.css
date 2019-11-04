@@ -1,5 +1,4 @@
 
-
 .input-range {
   margin-bottom: 3rem;
   margin: 2rem auto;
@@ -11,4 +10,13 @@
 }
 .mainView {
 padding-top: 2rem;
+}
+
+.fadeOut{
+    opacity:0;
+    transition: opacity 1s;
+}
+.fadeIn{
+    opacity:1;
+    transition: opacity 1.5s 1.5s;
 }

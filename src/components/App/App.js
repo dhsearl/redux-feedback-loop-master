@@ -15,7 +15,9 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 import Footer from '../Footer/Footer';
 
 
-
+// Header and Footer are persistant.  
+// Using the stepReducer we track what naviagation elements to show/ route to.
+// /admin does not have a direct link to it. You just gotta know.
 class App extends Component {
   render() {
     return (

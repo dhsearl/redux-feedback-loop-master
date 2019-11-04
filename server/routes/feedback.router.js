@@ -6,14 +6,14 @@ router.delete('/:id', (req, res) => {
     console.log('DELETE /feedback');
     const queryText = `DELETE FROM "feedback" WHERE id=$1`
     pool.query(queryText, [req.params.id])
-    .then(()=>{
-        console.log("DELETE success", req.params.id);
-        res.sendStatus(200);
-    })
-    .catch((error)=>{
-        console.log("DELETE error", error);
-        res.sendStatus(500);
-    })
+        .then(() => {
+            console.log("DELETE success", req.params.id);
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log("DELETE error", error);
+            res.sendStatus(500);
+        })
 })
 
 router.get('/', (req, res) => {
@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     console.log("POST /feedback");
-    const queryText = 'INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES($1,$2,$3,$4);'
+    const queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES($1,$2,$3,$4);`
     const queryArguments = [req.body.feeling, req.body.understanding, req.body.support, req.body.comments]
     pool.query(queryText, queryArguments)
         .then(() => {
@@ -43,19 +43,19 @@ router.post('/', (req, res) => {
         })
 })
 
-router.put('/:id', (req,res)=>{
+router.put('/:id', (req, res) => {
     console.log("PUT changing flagged status of ", req.params.id);
     const queryText = `UPDATE "feedback" SET flagged = NOT flagged WHERE id = $1`
     pool.query(queryText, [req.params.id])
-    .then(()=>{
-        console.log("PUT success", req.params.id)
-        res.sendStatus(200);
-    }) 
-    .catch((error)=>{
-        console.log("PUT error", error);
-        res.sendStatus(500);
-        
-    })
+        .then(() => {
+            console.log("PUT success", req.params.id)
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log("PUT error", error);
+            res.sendStatus(500);
+
+        })
 })
 
 module.exports = router;
