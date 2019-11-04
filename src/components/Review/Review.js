@@ -22,15 +22,14 @@ class Review extends Component {
                 <Container maxWidth="xs">
                 <Box px="2rem">
                     <Grid container 
-                    direction="column"
-                    alignItems="flex-end">
+                    justify="flex-end">
                         
                     <Box py="2rem">I'm feeling like a   <Score number={this.props.feedbackReducer.feeling} /></Box>
                     <Box pb="2rem">My understanding is a   <Score number={this.props.feedbackReducer.understanding} /></Box>
                     <Box pb="2rem">The level of support I feel is a   <Score number={this.props.feedbackReducer.support} /></Box>
 
                     {this.props.feedbackReducer.comments.length > 0
-                        && <Box>Additionally:  {this.props.feedbackReducer.comments}</Box>
+                        && <Box>Additional Comments:  {this.props.feedbackReducer.comments}</Box>
                     }
                     
                     </Grid>

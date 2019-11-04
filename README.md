@@ -14,20 +14,18 @@ The administrator function is available at /admin or /#/admin.  Responses are pr
 
 The coolest features of this application are
 * Redux state managing active page view, user input, and validation
-* Input Sliders for the 0-10 feedback questions
+* Input Range Sliders for the 0-10 feedback questions
 * Material-UI steppers and conditionally displayed buttons
 * Material Table and Moment.js making the /Admin page powerful and easy to use
 * DRY code - The Back/Next buttons, the Score chips and the Header are abstracted out into their own elements
-* 
+* Secret helper text for users who don't know what to do.
 
 
-### React & Material-UI
-Over the weekend I realized most of the documentation on Material-UI is written in a style of React I don't yet know. It took a while to figure out how to change it to a style I could work with reliably.  I don't know if it is Me or the Docs that are behind.
+### Redux State
+Keeping the user input in Redux was a breeze and saved passing as props their feedback as we move from page to page towards submit.  Managing what page the user was on was more difficult, but some pen, paper and variable tracking helped that out.  Users must input a slider value before they can progress. This is tracked in a simple array in Redux State.
 
-### Material-UI
-This framework is powerful but I have a lot to learn about using themes and the makeStyle functions.  It was a struggle for the previously mentioned reason, but after a weekend of using it I did get much faster at implementing Material-UI features.
-
-It was fun to mix conditional rendering with Material-UI icons for the "details and editing" parts of my cards.
+### Input Sliders
+I wanted to challenge myself and try a different input method than typing a number.  The React Input Range project an be found at [DAVID CHIN's GIT HUB](https://github.com/davidchin/react-input-range)
 
 ### Uppy
 Uppy was a struggle.  I did get file uploading to work.  In the future I'll add the upload from URL method, and store the files locally.  Configuring the Express server was outside of the scope of my project for the weekend and I focused on usability and UI.

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import MaterialTable from 'material-table'
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from '@material-ui/core'
 import axios from 'axios';
-import moment from 'moment'
+import moment from 'moment-timezone'
 
 class Admin extends Component {
     state = {
@@ -12,6 +12,8 @@ class Admin extends Component {
     }
 
     componentDidMount() {
+        // Set Default Timezone
+        moment.tz.setDefault("America/Chicago");
         // get data for page from database
         this.getData();
         // reset where you were (like page 0 and reset inputs)
@@ -64,7 +66,7 @@ class Admin extends Component {
         axios.get('/feedback')
             .then((response) => {
                 // Change date to a string telling us how recent it was
-                response.data.forEach(row => row.date = moment(row.date).fromNow())
+                response.data.forEach(row => row.date = moment(row.date).tz("America/Chicago").fromNow())
                 // set state to the array of row objects
                 this.setState({
                     fromDB: [...response.data]
