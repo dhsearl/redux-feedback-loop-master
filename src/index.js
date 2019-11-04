@@ -22,9 +22,6 @@ const theme = createMuiTheme({
         contrastThreshold: 3,
         tonalOffset: 0.2,
     },
-    breakpoints:{
-        
-    },
     spacing: 8,
     overrides: {
         MuiStepper: {
@@ -35,21 +32,21 @@ const theme = createMuiTheme({
         MuiStepLabel: {
             label: {
                 color: "white",
-                '&$active':{
+                '&$active': {
                     color: "pink"
                 },
-                '&$completed':{
+                '&$completed': {
                     color: "#6F7C80",
                 },
+            },
         },
-        
-    },
-    MuiTypography:{
-        h2:{
-            color:teal
-        }
-    },
-}}
+        MuiTypography: {
+            h2: {
+                color: teal
+            }
+        },
+    }
+}
 );
 
 
@@ -78,21 +75,22 @@ const stepReducer = (state = 0, action) => {
         return state - 1
     } else if (action.type === "RESET") {
         return 0
-    } else if (action.type ==="SET"){
+    } else if (action.type === "SET") {
         return action.payload
     }
     return state
 }
 
 // The array indexes match the page numbers from 0-home to 6-Success
-const allowNextPageArray = [true,false,false,false,true,true,true] 
-const allowNextReducer = (state = allowNextPageArray, action)=>{
-    if (action.type ==="ALLOW_NEXT"){
-        return state.map((page, i)=>{
-            if(action.payload === i) page = true;
+const allowNextPageArray = [true, false, false, false, true, true, true]
+const allowNextReducer = (state = allowNextPageArray, action) => {
+    if (action.type === "ALLOW_NEXT") {
+        return state.map((page, i) => {
+            if (action.payload === i) page = true;
             return page
-        })}
-     else if (action.type==="CLEAR"){
+        })
+    }
+    else if (action.type === "CLEAR") {
         return allowNextPageArray
     }
     return state
@@ -107,5 +105,5 @@ const storeInstance = createStore(
         allowNextReducer,
     })
 )
-    ReactDOM.render(<Provider store={storeInstance}><MuiThemeProvider theme={theme}><App /></MuiThemeProvider></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={storeInstance}><MuiThemeProvider theme={theme}><App /></MuiThemeProvider></Provider>, document.getElementById('root'));
 
