@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import InputRange from 'react-input-range';
 import 'react-input-range/lib/css/index.css'
+import {Container } from '@material-ui/core'
 
 
 
@@ -21,15 +22,14 @@ class PageOne extends Component {
         return (
             <>
                 <h1>How are you feeling today?</h1>
-
+                <Container maxWidth="sm">
                 <InputRange
                     maxValue={10}
                     minValue={0}
-                    className="sliderWidth"
                     value={this.props.feedbackReducer.feeling}
                     onChange={feeling => this.props.dispatch({ type: "ADD", payload: { property: "feeling", value: feeling } })}
                     onChangeStart={this.allowNextPage} />
-
+                </Container>
 
                 {/* If they haven't moved the slider, and some seconds pass then... */}
                 {!this.props.allowNextReducer[this.props.stepReducer] &&
