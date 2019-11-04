@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import InputRange from 'react-input-range';
 import 'react-input-range/lib/css/index.css'
+import { Box } from '@material-ui/core'
 
 
 class PageThree extends Component {
