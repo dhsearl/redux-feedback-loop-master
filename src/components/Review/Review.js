@@ -20,7 +20,7 @@ class Review extends Component {
                     justifyContent="center"
                 > */}
                 <Container maxWidth="xs">
-                <Box px="3rem">
+                <Box px="2rem">
                     <Grid container 
                     direction="column"
                     alignItems="flex-end">
