@@ -22,7 +22,7 @@ class PageOne extends Component {
         return (
             <>
                 <h1>How are you feeling today?</h1>
-                <div className="sliderWidth"
+                <div className="sliderWidth">
                 <InputRange
                     maxValue={10}
                     minValue={0}
