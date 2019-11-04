@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import InputRange from 'react-input-range';
 import 'react-input-range/lib/css/index.css'
+import { Box } from '@material-ui/core'
 
 
 class PageTwo extends Component {
@@ -21,15 +22,14 @@ class PageTwo extends Component {
         return (
             <>
                 <h1>How well do you understand the content?</h1>
-
+                <Box style={{width:'50%'}}>
                 <InputRange
                     maxValue={10}
                     minValue={0}
-                    style={{width:"50%"}}
                     value={this.props.feedbackReducer.understanding}
                     onChange={understanding => this.props.dispatch({ type: "ADD", payload: { property: "understanding", value: understanding } })}
                     onChangeStart={this.allowNextPage} />
-
+                </Box>
 
                 {/* If they haven't moved the slider, and some seconds pass then... */}
                 {!this.props.allowNextReducer[this.props.stepReducer] &&

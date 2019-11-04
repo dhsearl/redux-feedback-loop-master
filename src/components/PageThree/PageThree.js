@@ -21,14 +21,14 @@ class PageThree extends Component {
         return (
             <>
                 <h1>How well are you being supported?</h1>
+                <Box className="sliderWidth">
                 <InputRange
                     maxValue={10}
                     minValue={0}
-                    className="sliderWidth"
                     value={this.props.feedbackReducer.support}
                     onChange={support => this.props.dispatch({ type: "ADD", payload: { property: "support", value: support } })}
                     onChangeStart={this.allowNextPage} />
-
+                </Box>
 
                 {/* If they haven't moved the slider, and some seconds pass then... */}
                 {!this.props.allowNextReducer[this.props.stepReducer] &&
